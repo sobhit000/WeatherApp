@@ -1,0 +1,32 @@
+body {
+  background-color: #00ffff;
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+}
+
+.container {
+  text-align: center;
+}
+
+.input {
+  padding: 4px;
+  width: 300px;
+  border-radius: 0;
+  outline: none;
+}
+
+.submit {
+  border-radius: 0;
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 15px;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  background-color: #38A9AF;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
