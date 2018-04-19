@@ -79,6 +79,8 @@ function watchSubmit () {
     event.preventDefault();
     const query = $('.input').val();
     $('.input').val('');
+    $('.results').prop('hidden', false);
+    $('.results-youtube').prop('hidden', false);
     getDataFromApi(query, displayWeatherData);
     getDataFromApiYouTube(query, displayYouTubeData);    
   });

@@ -8,18 +8,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </head>
   <body>
-    <h1 role="heading">What's The Weather?</h1>
+    <header role="banner">
+      <h1 aria-label="heading">What's The Weather?</h1>
+    </header>
     <main role="main">
         <div class="container">
-        <h3>Enter the name of a city</h3>
-          <form class="form" role="form">
-            <label></label>
-            <input type="text" class="input" placeholder="Chicago, IL" required="required">
+        <h2>Enter the name of a city</h2>
+          <form action="#" class="form" aria-label="form">
+            <label for="query"></label>
+            <input type="text" class="input" placeholder="Chicago, IL" required="required" aria-label="Submit">
             <br>
             <button class="submit">Submit</button>
           </form>
-          <div class="results"></div>
-          <div class="results-youtube"></div>
+          <div class="results" aria-live="assertive" hidden></div>
+          <div class="results-youtube" aria-live="assertive" hidden></div>
           </div>
     </main>
     <script src="index.js"></script>
