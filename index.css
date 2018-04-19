@@ -63,6 +63,13 @@ img {
 }
 
 @media only screen and (max-width: 768px) {
+  .input {
+    width: 50%;
+    padding: 2px;
+  }
+  .results {
+    width: 100%;
+  }
   .results-youtube {
     width: 100%;
   }
