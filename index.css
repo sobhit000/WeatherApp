@@ -26,7 +26,7 @@ h1 {
   outline: none;
   cursor: pointer;
   border: none;
-  background-color: #38A9AF;
+  background-color: #5E00C2;
   color: #ffffff;
   transition: all 0.3s ease;
 }
@@ -60,4 +60,13 @@ h1 {
 img {
   width: 100%;
   text-align: center;
+}
+
+@media only screen and (max-width: 768px) {
+  .results-youtube {
+    width: 100%;
+  }
+  img {
+    width: 80%;
+  }
 }
