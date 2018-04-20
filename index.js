@@ -17,7 +17,8 @@ function getDataFromApi(searchTerm, callback) {
 }
 
 function error () {
-  console.log('error');  
+  $('.results').css('background-color', 'white');
+  $('.results').html(`<h1>There seems to be an error. Please Try again!</h1>`);  
 }
 
 const YouTube_URL = 'https://www.googleapis.com/youtube/v3/search';
@@ -45,13 +46,13 @@ function displayYouTubeData (data) {
   $('.results-youtube').html(results);
 }
 
-function renderResultYouTube (result) {
+function renderResultYouTube (result) {  
   return `
       <div class= 'results-youtube'>
-      <h3>${result.snippet.title}</h3>
-      <ul>
-      <li><a href = "https://www.youtube.com/watch?v=${result.id.videoId}"><img class="img" src="${result.snippet.thumbnails.medium.url}" alt="${result.snippet.title}"></a></li>
-      </ul>
+        <h3>${result.snippet.title}</h3>
+        <ul>
+        <li><a href = "https://www.youtube.com/watch?v=${result.id.videoId}"><img class="img" src="${result.snippet.thumbnails.medium.url}" alt="${result.snippet.title}"></a></li>
+        </ul>
       </div>
     `
       ;
