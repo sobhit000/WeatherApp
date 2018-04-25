@@ -2,22 +2,30 @@
 User types in a city name and gets back the current weather for the city as well as some related videos.
 
 # Description
-This app works with two APIs, the OpenWeatherMap and YouTube.
+This app works with two APIs, the OpenWeatherMap and YouTube. The user types in a city to get the current weather and then is given the option to checkout some related videos. Once the option is clicked, the videos are then displayed.
 
 # Built With
-* HTML, CSS, JavaScript, jQuery.
+* HTML
+* CSS
+* JavaScript
+* jQuery
 
 # Demo
-* https://sobhit000.github.io/WeatherApp/
+https://sobhit000.github.io/WeatherApp/
 
 # Screenshots
 Landing Page:
 
-![image](https://user-images.githubusercontent.com/28021303/39012914-70386d68-43db-11e8-83eb-540fce12620d.png)
+![image](https://user-images.githubusercontent.com/28021303/39267307-0dd66d6c-4892-11e8-9395-b1667c760b2e.png)
 
 Page With Results:
 
-![image](https://user-images.githubusercontent.com/28021303/39013094-ef885d3a-43db-11e8-9a2f-4c52e9adb8a9.png)
+![image](https://user-images.githubusercontent.com/28021303/39267458-7a819496-4892-11e8-82a1-5ba8a4a3ee25.png)
+
+Page with YouTube Results:
+
+![image](https://user-images.githubusercontent.com/28021303/39267616-f26fa222-4892-11e8-85fe-c1054fdb0d13.png)
+
 
 # Author
 Sobhit Sharma
