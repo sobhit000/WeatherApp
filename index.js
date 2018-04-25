@@ -16,11 +16,6 @@ function getDataFromApi(searchTerm, callback) {
   $.ajax(settings);
 }
 
-function error () {
-  $('.results').css('background-color', 'white');
-  $('.results').html(`<h1>There seems to be an error. Please Try again!</h1>`);  
-}
-
 const YouTube_URL = 'https://www.googleapis.com/youtube/v3/search';
 
 function getDataFromApiYouTube (searchTermYouTube, callback) {
@@ -41,12 +36,20 @@ function getDataFromApiYouTube (searchTermYouTube, callback) {
   $.ajax(settingsYoutube);
 }
 
+function error () {
+  $('.results').css('background-color', '#330000')
+  $('.results').html(`<h2>There seems to be an error. Please try again!</h2>`);
+  $('.title').html('');
+  $('.youtubeButton').hide();
+  $('.results-youtube').hide();
+}
+
 function displayYouTubeData (data) {
   const results = data.items.map((item, index) => renderResultYouTube(item));
   $('.results-youtube').html(results);
 }
 
-function renderResultYouTube (result) {  
+function renderResultYouTube (result) {
   return `
       <div class= 'results-youtube'>
         <h3>${result.snippet.title}</h3>
@@ -59,12 +62,13 @@ function renderResultYouTube (result) {
 }
 
 function renderResult(result) {
- $('.results').css('background-color', 'white'); 
+  $('.results').css('background-color', '#330000');
+  $('.results').prop('hidden', false);
   return   `
     <div class ='results'>
-      <h4 class="col-1-weather">The weather in ${result.name} is currently '${result.weather[0].main}'</h4>
-      <h4>The temperature is ${result.main.temp}&deg;F </h4>
-      <h4>Wind speed is ${result.wind.speed} miles/hour</h4>
+      <h3 class="col-1-weather">The weather in ${result.name} is currently '${result.weather[0].main}'</h3>
+      <h3>The temperature is ${result.main.temp}&deg;F </h3>
+      <h3>Wind speed is ${result.wind.speed} miles/hour</h3>
     </div>
   `
   ;
@@ -75,16 +79,29 @@ function displayWeatherData(data){
   $('.results').html(widget);
 }
 
+function clickToYoutube(query)  {
+  $('.youtubeButton').show();
+  $('.results-youtube').hide();
+  $('.youtubeButton').html(`Click To See Some ${query} Vidoes`);
+  $('.youtubeButton').on('click', function (event){
+    event.preventDefault();
+    getDataFromApiYouTube(query, displayYouTubeData);
+    $('.title').html(`<h2>Some Vidoes Related To ${query}</h1>`);
+    $('.results-youtube').show();
+    $('.youtubeButton').hide();
+    $('.title').prop('hidden', false);
+  });
+}
+
 function watchSubmit () {
   $('.form').on('submit', function (event){
     event.preventDefault();
     const query = $('.input').val();
     $('.input').val('');
-    $('.results').prop('hidden', false);
-    $('.results-youtube').prop('hidden', false);
     getDataFromApi(query, displayWeatherData);
-    getDataFromApiYouTube(query, displayYouTubeData);    
+    getDataFromApiYouTube(query, displayYouTubeData);
+    clickToYoutube(query);
+    $('.title').prop('hidden', true);
   });
 }
-
 watchSubmit();
